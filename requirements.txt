@@ -1,0 +1,15 @@
+webpack сборщик проекта (imports/exports)
+    babel контроль версий js для браузеров 
+    SCSS препроцессор css
+    eslint чистота кода 
+
+    2 mods 
+        -dev
+        -prod
+            minified file code
+git
+
+    prodcution
+    1.0.0
+    development
+    1.0.2
