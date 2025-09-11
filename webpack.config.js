@@ -16,7 +16,7 @@ console.log('is dev', isDev);
 module.exports = {
     context: path.resolve(__dirname, 'src'), 
     mode: 'development',
-    entry: './index.js',
+    entry: ['@babel/polyfill','./index.js'],
     output: {
         filename: filename('js'),
         path: path.resolve(__dirname, 'dist')
@@ -59,7 +59,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,  
           "css-loader",
           "sass-loader",
         ],
