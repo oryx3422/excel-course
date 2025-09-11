@@ -7,6 +7,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
 
+const filename = ext => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`;
+
 console.log('is prod', isProd);
 console.log('is dev', isDev);
 
@@ -16,7 +18,7 @@ module.exports = {
     mode: 'development',
     entry: './index.js',
     output: {
-        filename: 'bundle.js',
+        filename: filename('js'),
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
@@ -25,6 +27,11 @@ module.exports = {
             '@': path.resolve(__dirname, 'src'),
             '@core': path.resolve(__dirname, 'src/core'),
         }
+    },
+    devtool: isDev ? 'source-map' : false,
+    devServer: {
+      port: 3000,
+      hot: isDev,
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -43,7 +50,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin(
             {
-                filename: 'bundle.[hash].css'
+                filename: filename('css'),
             }
         ),
     ],
