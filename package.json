@@ -1,0 +1,24 @@
+{
+  "name": "excel-course",
+  "version": "1.0.0",
+  "description": "pure js excel app",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oryx3422/excel-course.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "excel"
+  ],
+  "author": "Blagodarenko Nikita <nikblago@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oryx3422/excel-course/issues"
+  },
+  "homepage": "https://github.com/oryx3422/excel-course#readme"
+}
