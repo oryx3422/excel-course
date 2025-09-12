@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": { "presets": ["@babel/preset-env"] },
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "env": { "es6": true, "node": true, "browser": true },
+  "extends": ["eslint:recommended", "google"],
+  "rules": {
+    "semi": "off",
+    "linebreak-style": ["error", "windows"],
+    "require-jsdoc": "off",
+    "indent": ["error", 2]
+  }
+}

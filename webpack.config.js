@@ -8,6 +8,15 @@ const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
 
 const filename = ext => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`;
+const jsLoaders = () => {
+  const loaders = [{
+    loader: 'babel-loader',
+    options: { presets: ['@babel/preset-env'] }
+  }];
+
+  loaders.push({ loader: 'eslint-loader', options: { emitWarning: isDev } });
+  return loaders; // <-- обязательно вернуть
+};
 
 console.log('is prod', isProd);
 console.log('is dev', isDev);
@@ -59,7 +68,8 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,  
+          MiniCssExtractPlugin.loader,
+            
           "css-loader",
           "sass-loader",
         ],
@@ -67,12 +77,7 @@ module.exports = {
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-          presets: ['@babel/preset-env']
-          }
-        }
+        use: jsLoaders(),
       }
     ],
   },
